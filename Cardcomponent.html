@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flip Card with Glowing Border</title>
+  <style>
+    /* Center the card in the viewport */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #111;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Card container with perspective for 3D effect */
+    .card {
+      width: 300px;
+      height: 400px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    /* Inner wrapper for flipping */
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+
+    /* Flip effect on click */
+    .card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    /* Front and back sides */
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    /* Front side with Tap Academy logo */
+    .card-front {
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card-front img {
+      width: 160px;
+      height: auto;
+      border-radius:20px ;
+    }
+
+    /* Back side with animated, glowing border */
+    .card-back {
+      background-color: #1a1a1a;
+      color: white;
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      border: 5px solid;
+      border-image-slice: 1;
+      animation: borderFlow 15s linear infinite; /* Slow animation */
+      box-shadow: 0 0 20px #983265, 0 0 40px #00ff00; /* Glowing border */
+    }
+
+    /* Back card heading */
+    .card-back h2 {
+      font-size: 20px;
+      margin: 0 0 10px 0;
+      font-weight: bold;
+      color: #2afadf;
+    }
+
+    /* Back card text content */
+    .card-back p {
+      font-size: 16px;
+      color: #ccc;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    /* Keyframes for animated border */
+    @keyframes borderFlow {
+      0% {
+        border-image-source: linear-gradient(0deg, #ff69b4, #ff00ff, #00ffd5, #00ff91);
+      }
+      50% {
+        border-image-source: linear-gradient(180deg, #ff69b4, #ff00ff, #00ffd5, #00ff55);
+      }
+      100% {
+        border-image-source: linear-gradient(360deg, #ff69b4, #ff00ff, #00ffd5, #00ff51);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Flip card container -->
+<div class="card" onclick="this.classList.toggle('flipped')">
+  <div class="card-inner">
+
+    <!-- FRONT: Logo -->
+    <div class="card-front">
+      <img src="C:\Users\lekha\OneDrive\Desktop\21781A0577.jpg"">
+    </div>
+
+    <!-- BACK: Heading + Description -->
+    <div class="card-back">
+      <h2><strong>Gamify</strong> and <strong>Simplify</strong> Learning</h2>
+      <p>I am lekha Reddy I could like to tell few things about me. i came from nuclear family mom dad and siblings i am a girl like decent and calm and posivite and soft spoken towards humans and also anybody or thing i am person in which i strongly a belive in hardwork without any luck or other the hardwork will never fail us atlast one fine day it will make us success</p>
+      <p>Thankyou</p>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
